@@ -17,13 +17,14 @@ public class SwitchLightsThread extends Thread {
     public void run() {
         while (!doStop) {
             try {
+                rc.switchLights(false);
+                ProjectMain.hSem.release();
                 ProjectMain.vSem.acquire();
                 sleep(duration* 1000L);
                 rc.switchLights(true);
                 ProjectMain.vSem.release();
                 ProjectMain.hSem.acquire();
                 sleep(duration*1000L);
-                rc.switchLights(false);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

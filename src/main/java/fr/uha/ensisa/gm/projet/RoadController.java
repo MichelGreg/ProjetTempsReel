@@ -38,30 +38,7 @@ public class RoadController {
         horizontalLight2.setImage(config ? redLight : greenLight);
     }
 
-    public void moveCar(int carId, int x, int y, Direction direction) {
-        System.out.printf("Move car %d%n", carId);
-        ImageView car;
-        if (cars.containsKey(carId)){
-            car = cars.get(carId);
-            Platform.runLater(()-> {
-                boolean removed = mainGrid.getChildren().remove(car);
-                if (x >= 0 && x <= 9 && y >= 0 && y <= 9) {
-                    mainGrid.add(car, x, y);
-                }
-            });
-        } else {
-            car = new ImageView(carImg);
-            car.setRotate(90*direction.getValue());
-            cars.put(carId, car);
-            Platform.runLater(()-> mainGrid.add(car, x, y));
-        }
-    }
-
-    public void deleteCar(int carId) {
-        Platform.runLater(()-> {
-            boolean removed = mainGrid.getChildren().remove(cars.get(carId));
-            System.out.printf("Delete car %d%n", carId);
-        });
-        cars.remove(carId);
+    public GridPane getMainGrid() {
+        return mainGrid;
     }
 }

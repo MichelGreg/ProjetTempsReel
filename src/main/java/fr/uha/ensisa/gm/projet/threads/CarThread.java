@@ -1,6 +1,7 @@
 package fr.uha.ensisa.gm.projet.threads;
 
 import fr.uha.ensisa.gm.projet.Direction;
+import fr.uha.ensisa.gm.projet.GridWrapper;
 import fr.uha.ensisa.gm.projet.ProjectMain;
 import fr.uha.ensisa.gm.projet.RoadController;
 
@@ -51,18 +52,25 @@ public class CarThread extends Thread {
             }
         }
         try {
+            GridWrapper gw = ProjectMain.gridWrapper;
             sleep(new Random().nextLong(0, 4000));
-            rc.moveCar(id, x, y, direction);
+            //rc.moveCar(id, x, y, direction);
+            gw.moveCar(id, x, y, direction);
             while (loop) {
                 sleep(1000L);
                 x += dx;
                 y += dy;
                 checkCrossroads();
-                rc.moveCar(id, x, y, direction);
+                //rc.moveCar(id, x, y, direction);
+                boolean move = gw.moveCar(id, x, y, direction);
+                while (!move){
+                    sleep(100L);
+                    move = gw.moveCar(id, x, y, direction);
+                }
                 loop = (x >= 0 && x <= 9 && y >= 0 && y <= 9);
-
             }
-            rc.deleteCar(id);
+            sleep(3000L);
+            run();
         } catch(InterruptedException e){
             throw new RuntimeException(e);
         }
@@ -70,6 +78,7 @@ public class CarThread extends Thread {
 
     private void checkCrossroads() throws InterruptedException {
         boolean horizontal = direction == Direction.LEFT || direction == Direction.RIGHT;
+        GridWrapper gw = ProjectMain.gridWrapper;
         if (inCrossroads(x, y)) {
             if (horizontal) {
                 if (!ProjectMain.hSem.tryAcquire()){
@@ -83,15 +92,18 @@ public class CarThread extends Thread {
                 }
             }
             System.out.printf("Car %d is entering the crossroads%n", id);
-            rc.moveCar(id, x, y, direction);
+            //rc.moveCar(id, x, y, direction);
+            gw.moveCar(id, x, y, direction);
             sleep(1000L);
             x += dx;
             y += dy;
-            rc.moveCar(id, x, y, direction);
+            //rc.moveCar(id, x, y, direction);
+            gw.moveCar(id, x, y, direction);
             sleep(1000L);
             x += dx;
             y += dy;
-            rc.moveCar(id, x, y, direction);
+            //rc.moveCar(id, x, y, direction);
+            //gw.moveCar(id, x, y, direction);
             if (horizontal) {
                 ProjectMain.hSem.release();
             } else {
