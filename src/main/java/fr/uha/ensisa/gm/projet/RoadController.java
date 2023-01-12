@@ -1,12 +1,9 @@
 package fr.uha.ensisa.gm.projet;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-
-import java.util.TreeMap;
 
 public class RoadController {
 
@@ -27,8 +24,6 @@ public class RoadController {
 
     private final Image greenLight = new Image(getClass().getResourceAsStream("ui/green.jpg"));
     private final Image redLight = new Image(getClass().getResourceAsStream("ui/red.jpg"));
-    private final Image carImg = new Image(getClass().getResourceAsStream("ui/car.png"));
-    private final TreeMap<Integer, ImageView> cars = new TreeMap<>();
 
     public void switchLights(boolean config) {
         System.out.println("Switch lights");

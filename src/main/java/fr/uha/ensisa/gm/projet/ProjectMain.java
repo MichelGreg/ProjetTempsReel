@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.concurrent.Semaphore;
 
 public class ProjectMain {
-    private static Image carImg = new Image(ProjectMain.class.getResourceAsStream("ui/car.png"));
+    private static final Image carImg = new Image(ProjectMain.class.getResourceAsStream("ui/car.png"));
 
     public static GridWrapper gridWrapper;
     public static Semaphore vSem = new Semaphore(1);
@@ -38,18 +38,16 @@ public class ProjectMain {
                                 rc.getMainGrid().add(car, x, y);
                                 cars.put(10*x+y, car);
                             } else {
-                                boolean b = rc.getMainGrid().getChildren().remove(cars.get(10*x+y));
+                                rc.getMainGrid().getChildren().remove(cars.get(10*x+y));
                                 cars.remove(10*x+y);
                             }
                         }));
-                //rc.getMainGrid().add(car, j, i);
-
             }
         }
 
-        Thread switchLightsThread = new SwitchLightsThread(10, rc);
+        Thread switchLightsThread = new SwitchLightsThread(6, rc);
         for (int i = 0; i < 7; i ++) {
-            threads.add(new CarThread(rc, i));
+            threads.add(new CarThread(i));
         }
         threads.add(switchLightsThread);
         for (Thread th : threads) {

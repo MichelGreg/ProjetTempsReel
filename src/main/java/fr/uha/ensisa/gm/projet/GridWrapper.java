@@ -1,12 +1,6 @@
 package fr.uha.ensisa.gm.projet;
 
-import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.image.ImageView;
-
-import java.util.Arrays;
-
-import static java.lang.Thread.sleep;
 
 public class GridWrapper {
     private final SimpleIntegerProperty[][] matrixProperties;
@@ -31,7 +25,7 @@ public class GridWrapper {
         matrixProperties[i][j].set(value);
     }
 
-    synchronized public boolean moveCar(int carId, int x, int y, Direction direction) throws InterruptedException {
+    synchronized public void moveCar(int carId, int x, int y, Direction direction) throws InterruptedException {
         if ((x == 0 && y == 5) || (x == 9 && y == 4) || (x == 4 && y == 0) || (x == 5 && y == 9)) {
             System.out.printf("Create car %d%n", carId);
             setMatrixValue(x, y, direction.getValue());
@@ -41,9 +35,9 @@ public class GridWrapper {
                 case TOP -> setMatrixValue(5, 0, -1);
                 case RIGHT -> setMatrixValue(9, 5, -1);
                 case BOTTOM -> setMatrixValue(4, 9, -1);
-                case LEFT -> setMatrixValue(0, 5, -1);
+                case LEFT -> setMatrixValue(0, 4, -1);
             }
-        } else if (getMatrixProperty(x, y).get() == -1){
+        } else {
             System.out.printf("Move car %d%n", carId);
             switch (direction) {
                 case TOP -> setMatrixValue(x, y + 1, -1);
@@ -52,10 +46,12 @@ public class GridWrapper {
                 case LEFT -> setMatrixValue(x + 1, y, -1);
             }
             setMatrixValue(x, y, direction.getValue());
-        } else {
-            return false;
         }
-        return true;
+    }
+
+    synchronized public boolean cantMove(int x, int y) {
+        boolean gridEnd = (x == 10 && y == 5) || (x == -1 && y == 4) || (x == 4 && y == 10) || (x == 5 && y == -1);
+        return !gridEnd && getMatrixProperty(x, y).get() != -1;
     }
 }
 

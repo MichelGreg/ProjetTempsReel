@@ -3,22 +3,21 @@ package fr.uha.ensisa.gm.projet.threads;
 import fr.uha.ensisa.gm.projet.Direction;
 import fr.uha.ensisa.gm.projet.GridWrapper;
 import fr.uha.ensisa.gm.projet.ProjectMain;
-import fr.uha.ensisa.gm.projet.RoadController;
 
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 public class CarThread extends Thread {
+    private static Semaphore crossRoads = new Semaphore(1);
     private final int id;
-    private final RoadController rc;
     private final Direction direction;
     private int x;
     private int dx;
     private int y;
     private int dy;
 
-    public CarThread(RoadController rc, int id) {
-        this.rc = rc;
-        this.direction = Direction.get(new Random().nextInt(0, 3));
+    public CarThread(int id) {
+        this.direction = Direction.get(new Random().nextInt(0, 4));
         this.id = id;
     }
 
@@ -54,19 +53,19 @@ public class CarThread extends Thread {
         try {
             GridWrapper gw = ProjectMain.gridWrapper;
             sleep(new Random().nextLong(0, 4000));
-            //rc.moveCar(id, x, y, direction);
+            while (gw.cantMove(x, y)) {
+                sleep(100L);
+            }
             gw.moveCar(id, x, y, direction);
             while (loop) {
                 sleep(1000L);
                 x += dx;
                 y += dy;
                 checkCrossroads();
-                //rc.moveCar(id, x, y, direction);
-                boolean move = gw.moveCar(id, x, y, direction);
-                while (!move){
+                while (gw.cantMove(x, y)) {
                     sleep(100L);
-                    move = gw.moveCar(id, x, y, direction);
                 }
+                gw.moveCar(id, x, y, direction);
                 loop = (x >= 0 && x <= 9 && y >= 0 && y <= 9);
             }
             sleep(3000L);
@@ -80,35 +79,35 @@ public class CarThread extends Thread {
         boolean horizontal = direction == Direction.LEFT || direction == Direction.RIGHT;
         GridWrapper gw = ProjectMain.gridWrapper;
         if (inCrossroads(x, y)) {
+            crossRoads.acquire();
             if (horizontal) {
                 if (!ProjectMain.hSem.tryAcquire()){
                     System.out.printf("Car %d is waiting for the green light%n", id);
+                    crossRoads.release();
                     ProjectMain.hSem.acquire();
+                    crossRoads.acquire();
                 }
+                ProjectMain.hSem.release();
             } else {
                 if (!ProjectMain.vSem.tryAcquire()){
                     System.out.printf("Car %d is waiting for the green light%n", id);
+                    crossRoads.release();
                     ProjectMain.vSem.acquire();
+                    crossRoads.acquire();
                 }
-            }
-            System.out.printf("Car %d is entering the crossroads%n", id);
-            //rc.moveCar(id, x, y, direction);
-            gw.moveCar(id, x, y, direction);
-            sleep(1000L);
-            x += dx;
-            y += dy;
-            //rc.moveCar(id, x, y, direction);
-            gw.moveCar(id, x, y, direction);
-            sleep(1000L);
-            x += dx;
-            y += dy;
-            //rc.moveCar(id, x, y, direction);
-            //gw.moveCar(id, x, y, direction);
-            if (horizontal) {
-                ProjectMain.hSem.release();
-            } else {
                 ProjectMain.vSem.release();
             }
+
+            System.out.printf("Car %d is entering the crossroads%n", id);
+            gw.moveCar(id, x, y, direction);
+            sleep(1000L);
+            x += dx;
+            y += dy;
+            gw.moveCar(id, x, y, direction);
+            sleep(1000L);
+            x += dx;
+            y += dy;
+            crossRoads.release();
             System.out.printf("Car %d exited the crossroads%n", id);
         }
 
