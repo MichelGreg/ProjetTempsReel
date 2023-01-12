@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="mainGrid" maxHeight="500.0" maxWidth="500.0" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" snapToPixel="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uha.ensisa.gm.projet.RoadController">
+  <columnConstraints>
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="62.0" pickOnBounds="true" GridPane.columnIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="verticalLight1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/red.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="horizontalLight2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/green.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="horizontalLight1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/green.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="verticalLight2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/red.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/ground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="9">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.rowIndex="4">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="9" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="7" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" />
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="9">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.rowIndex="5">
+         <image>
+            <Image url="@ui/road.jpg" />
+         </image>
+      </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="9" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+	   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+		   <image>
+			   <Image url="@ui/road.jpg" />
+		   </image>
+	   </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
+         <image>
+            <Image url="@ui/road2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="270.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+         <image>
+            <Image url="@ui/road2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="90.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+         <image>
+            <Image url="@ui/road2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" rotate="180.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+         <image>
+            <Image url="@ui/road2.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</GridPane>
