@@ -51,6 +51,7 @@ public class GridWrapper {
                 case TOP_RIGHT -> setMatrixValue(x - 1, y + 1, -1);
                 case BOTTOM_LEFT -> setMatrixValue(x + 1, y - 1, -1);
                 case BOTTOM_RIGHT -> setMatrixValue(x - 1, y - 1, -1);
+                case NONE -> setMatrixValue(x, y, -1);
             }
             setMatrixValue(x, y, directionCar.getValue() + ambInt);
         }

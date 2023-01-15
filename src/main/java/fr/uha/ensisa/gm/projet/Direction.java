@@ -8,7 +8,8 @@ public enum Direction {
     TOP_LEFT(4),
     TOP_RIGHT(5),
     BOTTOM_LEFT(6),
-    BOTTOM_RIGHT(7);
+    BOTTOM_RIGHT(7),
+    NONE(-1);
 
     private final int value;
     Direction(int value) {
