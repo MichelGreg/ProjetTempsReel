@@ -53,6 +53,7 @@ public class ProjectMain {
             }
         }
         Thread ambulanceThread = new AmbulanceThread(1);
+        ambulanceThread.setPriority(1);
         Thread switchLightsThread = new SwitchLightsThread(10, rc);
         for (int i = 0; i < 5; i ++) {
             threads.add(new CarThread(i));

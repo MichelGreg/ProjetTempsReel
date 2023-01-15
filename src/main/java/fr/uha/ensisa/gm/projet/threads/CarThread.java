@@ -2,13 +2,13 @@ package fr.uha.ensisa.gm.projet.threads;
 
 import fr.uha.ensisa.gm.projet.Direction;
 import fr.uha.ensisa.gm.projet.GridWrapper;
+import fr.uha.ensisa.gm.projet.PrioritySemaphore;
 import fr.uha.ensisa.gm.projet.ProjectMain;
 
 import java.util.Random;
-import java.util.concurrent.Semaphore;
 
 public class CarThread extends Thread {
-    protected static Semaphore crossRoads = new Semaphore(1);
+    protected static PrioritySemaphore crossRoads = new PrioritySemaphore(1);
     protected final int id;
     protected Direction directionMove;
     protected final Direction directionCar;
