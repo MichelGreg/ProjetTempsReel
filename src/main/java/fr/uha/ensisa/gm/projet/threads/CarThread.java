@@ -59,7 +59,7 @@ public class CarThread extends Thread {
             crossRoads.acquire();
             if (horizontal) {
                 if (!ProjectMain.hSem.tryAcquire()){
-                    System.out.printf("Car %d is waiting for the green light%n", id);
+                    System.out.printf("La voiture %d attends le feu vert%n", id);
                     crossRoads.release();
                     ProjectMain.hSem.acquire();
                     crossRoads.acquire();
@@ -67,7 +67,7 @@ public class CarThread extends Thread {
                 ProjectMain.hSem.release();
             } else {
                 if (!ProjectMain.vSem.tryAcquire()){
-                    System.out.printf("Car %d is waiting for the green light%n", id);
+                    System.out.printf("La voiture %d attends le feu vert%n", id);
                     crossRoads.release();
                     ProjectMain.vSem.acquire();
                     crossRoads.acquire();
@@ -75,7 +75,7 @@ public class CarThread extends Thread {
                 ProjectMain.vSem.release();
             }
 
-            System.out.printf("Car %d is entering the crossroads%n", id);
+            System.out.printf("La voiture %d entre dans l'intersection%n", id);
             gw.moveCar(id, x, y, directionMove, directionCar, false);
             sleep(1000L);
             x += dx;
@@ -85,7 +85,7 @@ public class CarThread extends Thread {
             x += dx;
             y += dy;
             crossRoads.release();
-            System.out.printf("Car %d exited the crossroads%n", id);
+            System.out.printf("La voiture %d sors de l'intersection%n", id);
         }
 
     }
