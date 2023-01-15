@@ -26,6 +26,7 @@ public class AmbulanceThread extends CarThread {
                 sleep(100L);
             }
             gw.moveCar(id, x, y, directionMove, directionCar, true);
+            ambulance.acquire();
             crossRoads.acquire();
             System.out.println("L'ambulance à la priorité dans le carrefour");
             while (loop) {
@@ -110,6 +111,7 @@ public class AmbulanceThread extends CarThread {
             || (dir == Direction.LEFT && x == 3)
             || (dir == Direction.RIGHT && x == 6)) {
             crossRoads.release();
+            ambulance.release();
         }
     }
 }

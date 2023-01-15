@@ -9,6 +9,7 @@ import java.util.concurrent.Semaphore;
 
 public class CarThread extends Thread {
     protected static Semaphore crossRoads = new Semaphore(1);
+    protected static Semaphore ambulance = new Semaphore(1);
     protected final int id;
     protected Direction directionMove;
     protected final Direction directionCar;
@@ -57,6 +58,13 @@ public class CarThread extends Thread {
         GridWrapper gw = ProjectMain.gridWrapper;
         if (inCrossroads(x, y)) {
             crossRoads.acquire();
+            if (!ambulance.tryAcquire()) {
+                System.out.printf("La voiture %d attends le passage de l'ambulance%n", id);
+                crossRoads.release();
+                ambulance.acquire();
+                crossRoads.acquire();
+            }
+            ambulance.release();
             if (horizontal) {
                 if (!ProjectMain.hSem.tryAcquire()){
                     System.out.printf("La voiture %d attends le feu vert%n", id);

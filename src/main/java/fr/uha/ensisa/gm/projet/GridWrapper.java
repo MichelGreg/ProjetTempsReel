@@ -65,6 +65,7 @@ public class GridWrapper {
         boolean busy = false;
         switch (direction) {
             case TOP -> {
+                if (y < 4) busy = true;
                 for (int yt = y; yt >= 4; yt--) {
                     if (getMatrixProperty(4, yt).get() != -1) {
                         busy = true;
@@ -72,6 +73,7 @@ public class GridWrapper {
                 }
             }
             case RIGHT -> {
+                if (x > 5) busy = true;
                 for (int xt = x; xt <= 5; xt++) {
                     if (getMatrixProperty(xt, 4).get() != -1) {
                         busy = true;
@@ -79,6 +81,7 @@ public class GridWrapper {
                 }
             }
             case BOTTOM -> {
+                if (y > 5) busy = true;
                 for (int yt = y; yt <= 5; yt++) {
                     if (getMatrixProperty(5, yt).get() != -1) {
                         busy = true;
@@ -86,6 +89,7 @@ public class GridWrapper {
                 }
             }
             case LEFT -> {
+                if (x < 4) busy = true;
                 for (int xt = x; xt >= 4; xt--) {
                     if (getMatrixProperty(xt, 5).get() != -1) {
                         busy = true;
