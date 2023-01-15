@@ -26,32 +26,7 @@ public class CarThread extends Thread {
     @Override
     public void run() {
         boolean loop = true;
-        switch (directionMove) {
-            case TOP -> {
-                x = 5;
-                y = 9;
-                dx = 0;
-                dy = -1;
-            }
-            case RIGHT -> {
-                x = 0;
-                y = 5;
-                dx = 1;
-                dy = 0;
-            }
-            case BOTTOM -> {
-                x = 4;
-                y = 0;
-                dx = 0;
-                dy = 1;
-            }
-            case LEFT -> {
-                x = 9;
-                y = 4;
-                dx = -1;
-                dy = 0;
-            }
-        }
+        init();
         try {
             GridWrapper gw = ProjectMain.gridWrapper;
             sleep(new Random().nextLong(0, 4000));
@@ -116,5 +91,34 @@ public class CarThread extends Thread {
     }
     protected boolean inCrossroads (int x, int y) {
         return ((x == 4 && y == 4) || (x == 5 && y == 4) || (x == 4 && y == 5) || (x == 5 && y == 5));
+    }
+
+    protected void init() {
+        switch (directionMove) {
+            case TOP -> {
+                x = 5;
+                y = 9;
+                dx = 0;
+                dy = -1;
+            }
+            case RIGHT -> {
+                x = 0;
+                y = 5;
+                dx = 1;
+                dy = 0;
+            }
+            case BOTTOM -> {
+                x = 4;
+                y = 0;
+                dx = 0;
+                dy = 1;
+            }
+            case LEFT -> {
+                x = 9;
+                y = 4;
+                dx = -1;
+                dy = 0;
+            }
+        }
     }
 }

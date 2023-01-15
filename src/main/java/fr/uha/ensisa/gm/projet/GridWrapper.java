@@ -53,7 +53,6 @@ public class GridWrapper {
                 case BOTTOM_RIGHT -> setMatrixValue(x - 1, y - 1, -1);
             }
             setMatrixValue(x, y, directionCar.getValue() + ambInt);
-            System.out.println(Arrays.deepToString(matrix));
         }
     }
 
