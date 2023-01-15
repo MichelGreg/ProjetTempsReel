@@ -13,7 +13,7 @@ public class CarThread extends Thread {
     protected final int id;
     protected Direction directionMove;
     protected Direction directionCar;
-    protected final Direction turn;
+    protected Direction turn;
     protected int x;
     protected int dx;
     protected int y;
@@ -21,15 +21,9 @@ public class CarThread extends Thread {
 
     public CarThread(int id) {
         this.id = id;
-        Random rd = new Random();
-        int direction = rd.nextInt(0, 4);
+        int direction = new Random().nextInt(0, 4);
         this.directionMove = Direction.get(direction);
         this.directionCar = directionMove;
-        int turn;
-        do {
-            turn = rd.nextInt(4);
-        } while (turn == (direction + 1) % 4);
-        this.turn = Direction.get(turn);
     }
 
     @Override
@@ -94,8 +88,6 @@ public class CarThread extends Thread {
             System.out.printf("La voiture %d entre dans l'intersection%n", id);
             gw.moveCar(id, x, y, directionMove, directionCar, false);
             sleep(1000L);
-//            x += dx;
-//            y += dy;
             turn(gw);
             sleep(1000L);
             x += dx;
@@ -202,8 +194,8 @@ public class CarThread extends Thread {
                         directionMove = Direction.TOP;
                     }
                     case BOTTOM -> {
-                        dx = -1;
-                        dy = 0;
+                        dx = 0;
+                        dy = 1;
                         x--;
                         y++;
                         directionCar = Direction.BOTTOM;
@@ -226,6 +218,11 @@ public class CarThread extends Thread {
     }
 
     protected void init() {
+        int turn;
+        do {
+            turn = new Random().nextInt(4);
+        } while (turn == (directionMove.getValue() + 2) % 4);
+        this.turn = Direction.get(turn);
         switch (directionMove) {
             case TOP -> {
                 x = 5;
