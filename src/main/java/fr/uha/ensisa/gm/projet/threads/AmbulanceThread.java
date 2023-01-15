@@ -44,9 +44,9 @@ public class AmbulanceThread extends CarThread {
                 if (passing) {
                     directionMove = directionCar;
                 }
+                checkCrossroadsPassed(directionMove);
                 loop = (x >= 0 && x <= 9 && y >= 0 && y <= 9);
             }
-            crossRoads.release();
             sleep(3000L);
             run();
         } catch(InterruptedException e){
@@ -101,6 +101,15 @@ public class AmbulanceThread extends CarThread {
                     directionMove = Direction.TOP_LEFT;
                 }
             }
+        }
+    }
+
+    private void checkCrossroadsPassed(Direction dir) {
+        if ((dir == Direction.TOP && y == 3)
+            || (dir == Direction.BOTTOM && y == 6)
+            || (dir == Direction.LEFT && x == 3)
+            || (dir == Direction.RIGHT && x == 6)) {
+            crossRoads.release();
         }
     }
 }

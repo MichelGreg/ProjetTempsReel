@@ -2,7 +2,6 @@ package fr.uha.ensisa.gm.projet;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-import java.util.Arrays;
 
 public class GridWrapper {
     private final SimpleIntegerProperty[][] matrixProperties;
@@ -29,11 +28,12 @@ public class GridWrapper {
 
     synchronized public void moveCar(int carId, int x, int y, Direction directionMove, Direction directionCar , boolean amb) throws InterruptedException {
         int ambInt = amb ? 4 : 0;
+        String name = amb ? "ambulance" : "car";
         if ((x == 0 && y == 5) || (x == 9 && y == 4) || (x == 4 && y == 0) || (x == 5 && y == 9)) {
-            System.out.printf("Create car %d%n", carId);
+            System.out.printf("Create %s %d%n", name, carId);
             setMatrixValue(x, y, directionMove.getValue() + ambInt);
         } else if ((x == 10 && y == 5) || (x == -1 && y == 4) || (x == 4 && y == 10) || (x == 5 && y == -1)) {
-            System.out.printf("Delete car %d%n", carId);
+            System.out.printf("Delete %s %d%n", name, carId);
             switch (directionMove) {
                 case TOP -> setMatrixValue(5, 0, -1);
                 case RIGHT -> setMatrixValue(9, 5, -1);
@@ -41,7 +41,7 @@ public class GridWrapper {
                 case LEFT -> setMatrixValue(0, 4, -1);
             }
         } else {
-            System.out.printf("Move car %d%n", carId);
+            //System.out.printf("Move %s %d%n", name, carId);
             switch (directionMove) {
                 case TOP -> setMatrixValue(x, y + 1, -1);
                 case RIGHT -> setMatrixValue(x - 1, y, -1);
