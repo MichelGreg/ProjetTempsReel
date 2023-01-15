@@ -2,6 +2,8 @@ package fr.uha.ensisa.gm.projet;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.util.Arrays;
+
 public class GridWrapper {
     private final SimpleIntegerProperty[][] matrixProperties;
     private final int[][] matrix;
@@ -25,13 +27,14 @@ public class GridWrapper {
         matrixProperties[i][j].set(value);
     }
 
-    synchronized public void moveCar(int carId, int x, int y, Direction direction) throws InterruptedException {
+    synchronized public void moveCar(int carId, int x, int y, Direction directionMove, Direction directionCar , boolean amb) throws InterruptedException {
+        int ambInt = amb ? 4 : 0;
         if ((x == 0 && y == 5) || (x == 9 && y == 4) || (x == 4 && y == 0) || (x == 5 && y == 9)) {
             System.out.printf("Create car %d%n", carId);
-            setMatrixValue(x, y, direction.getValue());
+            setMatrixValue(x, y, directionMove.getValue() + ambInt);
         } else if ((x == 10 && y == 5) || (x == -1 && y == 4) || (x == 4 && y == 10) || (x == 5 && y == -1)) {
             System.out.printf("Delete car %d%n", carId);
-            switch (direction) {
+            switch (directionMove) {
                 case TOP -> setMatrixValue(5, 0, -1);
                 case RIGHT -> setMatrixValue(9, 5, -1);
                 case BOTTOM -> setMatrixValue(4, 9, -1);
@@ -39,13 +42,18 @@ public class GridWrapper {
             }
         } else {
             System.out.printf("Move car %d%n", carId);
-            switch (direction) {
+            switch (directionMove) {
                 case TOP -> setMatrixValue(x, y + 1, -1);
                 case RIGHT -> setMatrixValue(x - 1, y, -1);
                 case BOTTOM -> setMatrixValue(x, y - 1, -1);
                 case LEFT -> setMatrixValue(x + 1, y, -1);
+                case TOP_LEFT -> setMatrixValue(x + 1, y + 1, -1);
+                case TOP_RIGHT -> setMatrixValue(x - 1, y + 1, -1);
+                case BOTTOM_LEFT -> setMatrixValue(x + 1, y - 1, -1);
+                case BOTTOM_RIGHT -> setMatrixValue(x - 1, y - 1, -1);
             }
-            setMatrixValue(x, y, direction.getValue());
+            setMatrixValue(x, y, directionCar.getValue() + ambInt);
+            System.out.println(Arrays.deepToString(matrix));
         }
     }
 
@@ -53,5 +61,42 @@ public class GridWrapper {
         boolean gridEnd = (x == 10 && y == 5) || (x == -1 && y == 4) || (x == 4 && y == 10) || (x == 5 && y == -1);
         return !gridEnd && getMatrixProperty(x, y).get() != -1;
     }
+
+    synchronized public boolean canPass(int x, int y, Direction direction) {
+        boolean busy = false;
+        switch (direction) {
+            case TOP -> {
+                for (int yt = y; yt >= 4; yt--) {
+                    if (getMatrixProperty(4, yt).get() != -1) {
+                        busy = true;
+                    }
+                }
+            }
+            case RIGHT -> {
+                for (int xt = x; xt <= 5; xt++) {
+                    if (getMatrixProperty(xt, 4).get() != -1) {
+                        busy = true;
+                    }
+                }
+            }
+            case BOTTOM -> {
+                for (int yt = y; yt <= 5; yt++) {
+                    if (getMatrixProperty(5, yt).get() != -1) {
+                        busy = true;
+                    }
+                }
+            }
+            case LEFT -> {
+                for (int xt = x; xt >= 4; xt--) {
+                    if (getMatrixProperty(xt, 5).get() != -1) {
+                        busy = true;
+                    }
+                }
+            }
+        }
+        return !busy;
+    }
+
+
 }
 

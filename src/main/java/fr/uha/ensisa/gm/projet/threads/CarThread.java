@@ -8,23 +8,25 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 public class CarThread extends Thread {
-    private static Semaphore crossRoads = new Semaphore(1);
-    private final int id;
-    private final Direction direction;
-    private int x;
-    private int dx;
-    private int y;
-    private int dy;
+    protected static Semaphore crossRoads = new Semaphore(1);
+    protected final int id;
+    protected Direction directionMove;
+    protected final Direction directionCar;
+    protected int x;
+    protected int dx;
+    protected int y;
+    protected int dy;
 
     public CarThread(int id) {
-        this.direction = Direction.get(new Random().nextInt(0, 4));
+        this.directionMove = Direction.get(new Random().nextInt(0, 4));
+        this.directionCar = directionMove;
         this.id = id;
     }
 
     @Override
     public void run() {
         boolean loop = true;
-        switch (direction) {
+        switch (directionMove) {
             case TOP -> {
                 x = 5;
                 y = 9;
@@ -56,7 +58,7 @@ public class CarThread extends Thread {
             while (gw.cantMove(x, y)) {
                 sleep(100L);
             }
-            gw.moveCar(id, x, y, direction);
+            gw.moveCar(id, x, y, directionMove, directionCar, false);
             while (loop) {
                 sleep(1000L);
                 x += dx;
@@ -65,7 +67,7 @@ public class CarThread extends Thread {
                 while (gw.cantMove(x, y)) {
                     sleep(100L);
                 }
-                gw.moveCar(id, x, y, direction);
+                gw.moveCar(id, x, y, directionMove, directionCar, false);
                 loop = (x >= 0 && x <= 9 && y >= 0 && y <= 9);
             }
             sleep(3000L);
@@ -75,8 +77,8 @@ public class CarThread extends Thread {
         }
     }
 
-    private void checkCrossroads() throws InterruptedException {
-        boolean horizontal = direction == Direction.LEFT || direction == Direction.RIGHT;
+    protected void checkCrossroads() throws InterruptedException {
+        boolean horizontal = directionMove == Direction.LEFT || directionMove == Direction.RIGHT;
         GridWrapper gw = ProjectMain.gridWrapper;
         if (inCrossroads(x, y)) {
             crossRoads.acquire();
@@ -99,11 +101,11 @@ public class CarThread extends Thread {
             }
 
             System.out.printf("Car %d is entering the crossroads%n", id);
-            gw.moveCar(id, x, y, direction);
+            gw.moveCar(id, x, y, directionMove, directionCar, false);
             sleep(1000L);
             x += dx;
             y += dy;
-            gw.moveCar(id, x, y, direction);
+            gw.moveCar(id, x, y, directionMove, directionCar, false);
             sleep(1000L);
             x += dx;
             y += dy;
@@ -112,7 +114,7 @@ public class CarThread extends Thread {
         }
 
     }
-    private boolean inCrossroads (int x, int y) {
+    protected boolean inCrossroads (int x, int y) {
         return ((x == 4 && y == 4) || (x == 5 && y == 4) || (x == 4 && y == 5) || (x == 5 && y == 5));
     }
 }
