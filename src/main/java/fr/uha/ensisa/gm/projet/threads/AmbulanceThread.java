@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class AmbulanceThread extends CarThread {
 
+    private boolean passing;
+
     public AmbulanceThread(int id) {
         super(id);
     }
@@ -15,7 +17,7 @@ public class AmbulanceThread extends CarThread {
     @Override
     public void run() {
         boolean loop = true;
-        boolean passing = false;
+        this.passing = false;
         init();
         try {
             GridWrapper gw = ProjectMain.gridWrapper;
@@ -32,46 +34,11 @@ public class AmbulanceThread extends CarThread {
                 y += dy;
                 while (gw.cantMove(x, y)) {
                     if (gw.canPass(x, y, directionMove)) {
-                        passing = true;
-                        switch (directionMove) {
-                            case TOP -> {
-                                x--;
-                                directionMove = Direction.TOP_LEFT;
-                            }
-                            case RIGHT -> {
-                                y--;
-                                directionMove = Direction.TOP_RIGHT;
-                            }
-                            case BOTTOM -> {
-                                x++;
-                                directionMove = Direction.BOTTOM_RIGHT;
-                            }
-                            case LEFT -> {
-                                y++;
-                                directionMove = Direction.BOTTOM_LEFT;
-                            }
-                        }
+                        changeLane(true);
                     }
                 }
                 if (passing && inCrossroads(x, y, directionMove)) {
-                    switch (directionMove) {
-                        case TOP -> {
-                            x++;
-                            directionMove = Direction.TOP_RIGHT;
-                        }
-                        case RIGHT -> {
-                            y++;
-                            directionMove = Direction.BOTTOM_RIGHT;
-                        }
-                        case BOTTOM -> {
-                            x--;
-                            directionMove = Direction.BOTTOM_LEFT;
-                        }
-                        case LEFT -> {
-                            y--;
-                            directionMove = Direction.TOP_LEFT;
-                        }
-                    }
+                    changeLane(false);
                 }
                 gw.moveCar(id, x, y, directionMove, directionCar, true);
                 if (passing) {
@@ -94,4 +61,46 @@ public class AmbulanceThread extends CarThread {
                 || (x == 4 && y == 5) && dir == Direction.LEFT);
     }
 
+    private void changeLane(boolean change) {
+        if (change) {
+            this.passing = true;
+            switch (directionMove) {
+                case TOP -> {
+                    x--;
+                    directionMove = Direction.TOP_LEFT;
+                }
+                case RIGHT -> {
+                    y--;
+                    directionMove = Direction.TOP_RIGHT;
+                }
+                case BOTTOM -> {
+                    x++;
+                    directionMove = Direction.BOTTOM_RIGHT;
+                }
+                case LEFT -> {
+                    y++;
+                    directionMove = Direction.BOTTOM_LEFT;
+                }
+            }
+        } else {
+            switch (directionMove) {
+                case TOP -> {
+                    x++;
+                    directionMove = Direction.TOP_RIGHT;
+                }
+                case RIGHT -> {
+                    y++;
+                    directionMove = Direction.BOTTOM_RIGHT;
+                }
+                case BOTTOM -> {
+                    x--;
+                    directionMove = Direction.BOTTOM_LEFT;
+                }
+                case LEFT -> {
+                    y--;
+                    directionMove = Direction.TOP_LEFT;
+                }
+            }
+        }
+    }
 }
